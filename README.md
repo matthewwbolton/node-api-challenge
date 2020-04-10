@@ -40,13 +40,23 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] Mention two parts of Express that you learned about this week.
 
+        Express is a Node.JS web application framework that is both lightweight and extensible. With its extensive library of middleware and HTTP utility methods, Express provides the scaffolding for building robust web APIs. The Express framework also provides built-in routing capability allowing you to compartmentalize each resource and its associated endpoints and routes which is essential for scaling your web API while keeping it maintainable simultaneously.
+
 - [ ] Describe Middleware?
+
+       Middleware is essentially software that lies between one application layer and another. In the case of Express, middleware are functions that are executed sequentially during the lifecycle of an HTTP request to the Express server. Each middleware function has access to both the request and response objects and has the ability to change the response though it does not have to. Each middleware function also has the ability to terminate the HTTP request lifecycle by sending a response back to the client or passing the request on the to the next middleware function in the stack.
 
 - [ ] Describe a Resource?
 
-- [ ] What can the API return to help clients know if a request was successful?
+        A resource, in terms of RESTful web APIs, is an object with a type that has associated data. It usually will have relationships to other resources and most importantly has a set of methods that act on it. These methods are the standard HTTP GET, POST, PUT, and DELETE methods which are used to send data back and forth over the internet between client and server.
+
+* [ ] What can the API return to help clients know if a request was successful?
+
+        Status codes are used by web APIs to orient clients as to whether a particular request was successful or not. These codes range from 100 – 600 and each is specific to a particular type of success or failure in response to a request made to the server by the client.
 
 - [ ] How can we partition our application into sub-applications?
+
+        As mentioned above, Express has a built-in routing capability that allows developers to partition their backend web applications into sub-applications which is essential for both scalability and maintainability. These sub-applications are usually partitioned in such a way as to aggregate all the particular endpoints and associated HTTP methods for a single resource.
 
 ## Minimum Viable Product
 
