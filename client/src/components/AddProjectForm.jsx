@@ -26,7 +26,7 @@ const AddProjectForm = () => {
 
   return (
     <div>
-      <form onSubmit={(e) => submitHandler()}>
+      <form onSubmit={handleSubmit(submitHandler)}>
         <label>Name:</label>
         <input
           onChange={handleChanges}

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import AddProjectForm from "../components/AddProjectForm";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
+
+  const history = useHistory();
 
   useEffect(() => {
     axios
@@ -15,6 +17,17 @@ const Projects = () => {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const deleteProject = (id) => {
+    axios
+      .delete(`http://localhost:8000/api/projects/${id}`)
+      .then((res) => {
+        console.log(res);
+        history.push("/");
+      })
+      .catch((err) => console.log(err));
+  };
+
   return (
     <div>
       {projects.map((project) => (
@@ -23,6 +36,9 @@ const Projects = () => {
             <h1>{project.name}</h1>
             <p>{project.description}</p>
           </div>
+          <button onClick={() => deleteProject(project.id)}>
+            Delete Project
+          </button>
         </Link>
       ))}
       <AddProjectForm />
