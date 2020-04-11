@@ -4,7 +4,6 @@ import axios from "axios";
 
 const ProjectDetails = () => {
   const [details, setDetails] = useState({});
-  const [actions, setActions] = useState();
   const params = useParams();
   console.log(params.id);
 
@@ -21,13 +20,17 @@ const ProjectDetails = () => {
 
   return (
     <div>
-      <h1>{details.name}</h1>
-      <p>{details.description}</p>
-      {/* {details.actions.map((elem) => (
-        <div key={elem.id}>
-          <h4>{elem.description}</h4>
+      {details.hasOwnProperty("actions") && (
+        <div>
+          <h1>{details.name}</h1>
+          <p>{details.description}</p>
+          {details.actions.map((elem) => (
+            <div key={elem.id}>
+              <h4>{elem.description}</h4>
+            </div>
+          ))}
         </div>
-      ))} */}
+      )}
     </div>
   );
 };

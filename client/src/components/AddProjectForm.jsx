@@ -4,7 +4,7 @@ import axios from "axios";
 
 const AddProjectForm = () => {
   const { register, handleSubmit, errors } = useForm();
-  const onSubmit = (data) => console.log(data);
+  // const onSubmit = (data) => console.log(data);
 
   const [newProject, setNewProject] = useState({
     name: "",
